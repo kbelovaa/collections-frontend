@@ -49,8 +49,5 @@
   },
   "settings": {
     "import/resolver": "webpack"
-  },
-  "eslint.workingDirectories": [
-    {"mode": "auto"}
-  ]
+  }
 }

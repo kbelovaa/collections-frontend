@@ -36,6 +36,7 @@ const LargestCollection = () => {
             key={collection.collection.id}
           >
             <IKImage
+              data-proportion-h="1"
               className="collection-icon"
               urlEndpoint={urlEndpoint}
               path={collection.collection.img ?? 'noimage.jpg'}

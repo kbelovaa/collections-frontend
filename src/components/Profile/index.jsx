@@ -78,6 +78,7 @@ const Profile = () => {
           {collections.collections.map((collection) => (
             <Card bg={themeBgLight[theme]} className={`${theme} collection-card`} key={collection.id}>
               <IKImage
+                data-proportion-h="1"
                 className="collection-icon"
                 onClick={() => navigate(`/collection/${collection.id}`)}
                 urlEndpoint={urlEndpoint}

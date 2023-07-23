@@ -132,6 +132,7 @@ const Collection = () => {
       <h2 className={`text-${themeColorLight[theme]} m-3`}>{collection.name && `"${collection.name}" collection`}</h2>
       <div className="d-flex">
         <IKImage
+          data-proportion-h="1"
           urlEndpoint={urlEndpoint}
           path={collection.img ?? 'noimage.jpg'}
           transformation={[
@@ -157,7 +158,7 @@ const Collection = () => {
             </Accordion.Item>
             <Accordion.Item eventKey="1">
               <Accordion.Header className={theme}>Description</Accordion.Header>
-              <Accordion.Body className={`bg-${themeBgLight[theme]}`}><pre>{collection.description}</pre></Accordion.Body>
+              <Accordion.Body className={`bg-${themeBgLight[theme]}`}>{collection.description}</Accordion.Body>
             </Accordion.Item>
             <Accordion.Item
               eventKey="2"

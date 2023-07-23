@@ -21,6 +21,16 @@
   }
 }
 
+.list-group-item {
+  @media screen and (max-width: 992px) {
+    padding: 0.7rem 0.9rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+  }
+}
+
 .item-toolbar {
   width: 70vw;
 

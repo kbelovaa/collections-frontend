@@ -11,6 +11,7 @@ import UsersTable from '../UsersTable';
 import Profile from '../Profile';
 import Collection from '../Collection';
 import Item from '../Item';
+import './styles.scss';
 
 const App = () => {
   const dispatch = useDispatch();

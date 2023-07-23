@@ -62,7 +62,7 @@ const Comments = ({ socket, itemId, userId }) => {
   );
 
   return (
-    <Container className="comments-container mt-5">
+    <div className="d-flex justify-content-center mt-5">
       <Card className={`bg-${themeBgLight[theme]} comments-card shadow-0 border mb-5`}>
         <Card.Body>
           <Form onSubmit={sendComment} className={token !== null ? 'd-flex flex-column' : 'd-none'}>
@@ -122,7 +122,7 @@ const Comments = ({ socket, itemId, userId }) => {
           </Scrollbar>
         </Card.Body>
       </Card>
-    </Container>
+    </div>
   );
 };
 

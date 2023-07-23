@@ -176,8 +176,8 @@ const ItemModal = ({ show, setShow, itemId, setEditItem, collectionId }) => {
           </Form.Group>
           <Form.Group className={`${theme} mb-3`} controlId="tags">
             <Form.Label>Item tags</Form.Label>
-            <TagsInput value={tags} onChange={setTags} placeHolder="Enter tags" required />
-            <Form.Text>Press enter to add new tag</Form.Text>
+            <TagsInput value={tags} onChange={setTags} separators={[' ']} placeHolder="Enter tags" required />
+            <Form.Text>Press space button to add new tag</Form.Text>
           </Form.Group>
           {intFields.map((item, index) => (
             <Form.Group key={index} className={item ? 'mb-3' : 'd-none'} controlId="intFields">

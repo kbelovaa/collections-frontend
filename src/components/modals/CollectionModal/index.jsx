@@ -93,6 +93,7 @@ const CollectionModal = ({ show, setShow, collectionId, setEditCollection }) => 
         setBoolFields([data.booleanField1 ?? '', data.booleanField2 ?? '', data.booleanField3 ?? '']);
         setDateFields([data.dateField1 ?? '', data.dateField2 ?? '', data.dateField3 ?? '']);
       });
+      setShowMessage(false);
     }
   }, [collectionId]);
 
@@ -120,6 +121,7 @@ const CollectionModal = ({ show, setShow, collectionId, setEditCollection }) => 
     setTextFields(['', '', '']);
     setBoolFields(['', '', '']);
     setDateFields(['', '', '']);
+    setShowMessage(false);
   };
 
   const handleClose = () => {
@@ -268,14 +270,14 @@ const CollectionModal = ({ show, setShow, collectionId, setEditCollection }) => 
               onChange={(e) => setSelectedTheme(e.target.value)}
             >
               <option value="none" disabled hidden>
-                Select a theme
-              </option>
-              {THEMES.sort().map((item) => (
-                <option key={item} value={item}>
-                  {item}
+                  Select a theme
                 </option>
-              ))}
-              <option value="Other">Other</option>
+                {THEMES.sort().map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+                <option value="Other">Other</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="description">

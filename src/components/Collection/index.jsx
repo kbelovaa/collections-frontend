@@ -177,13 +177,13 @@ const Collection = () => {
             </Accordion.Item>
           </Accordion>
           <ButtonToolbar className={token !== null && (token.role === 'ADMIN' || user.id == token.id) ? '' : 'd-none'}>
-            <Button onClick={handleShowItemModal} className="m-2" variant="primary">
+            <Button onClick={handleShowItemModal} className="m-1" variant="primary">
               Add item <FontAwesomeIcon icon={faPlus} />
             </Button>
-            <Button onClick={() => handleShowModifyCollection(collection.id)} className="m-2" variant="secondary">
+            <Button onClick={() => handleShowModifyCollection(collection.id)} className="m-1" variant="secondary">
               Edit <FontAwesomeIcon icon={faPen} />
             </Button>
-            <Button onClick={() => handleDeleteCollection(collection.id)} className="m-2" variant="danger">
+            <Button onClick={() => handleDeleteCollection(collection.id)} className="m-1" variant="danger">
               Delete <FontAwesomeIcon icon={faXmark} />
             </Button>
           </ButtonToolbar>
@@ -201,10 +201,10 @@ const Collection = () => {
                 data={items.items}
                 enableFacetedValues
                 initialState={{ showColumnFilters: true }}
+                enableFullScreenToggle={false}
                 enableRowActions
-                positionActionsColumn="last"
                 renderRowActions={({ row }) => (
-                  <div className="d-flex">
+                  <div className='d-flex'>
                     <OverlayTrigger placement="bottom" delay={{ show: 250, hide: 250 }} overlay={renderItemTooltip}>
                       <Button
                         onClick={() => navigate(`/item/${items.items[row.index].id}`)}

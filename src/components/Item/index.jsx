@@ -89,7 +89,7 @@ const Item = () => {
   return (
     <Container className="container-wrap d-flex align-items-center flex-column">
       <h2 className={`text-${themeColorLight[theme]} m-3`}>{item.name}</h2>
-      <div className="d-flex">
+      <div className="d-flex align-items-start flex-column-reverse flex-md-row">
         <div className="me-3">
           <ListGroup className="item-info">
             <ListGroup.Item variant={themeListGroupVariant[theme]}>

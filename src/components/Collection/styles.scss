@@ -27,6 +27,16 @@
   background-color: #6c757d;
 }
 
+.accordion-button, .accordion-body {
+  @media screen and (max-width: 992px) {
+    padding: 0.7rem 0.9rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem 0.7rem;
+  }
+}
+
 pre {
   font-family: $font-family-base;
   font-size: $font-size-base;

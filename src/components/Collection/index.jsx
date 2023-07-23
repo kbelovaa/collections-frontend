@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import ReactMarkdown from 'react-markdown'
 import { Accordion, Button, ButtonToolbar, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { IKImage } from 'imagekitio-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -45,10 +46,7 @@ const Collection = () => {
         palette: {
           mode: theme,
           background: {
-            default:
-              theme === 'light'
-                ? '#fff'
-                : '#474b4f',
+            default: theme === 'light' ? '#fff' : '#474b4f',
           },
         },
       }),
@@ -72,7 +70,7 @@ const Collection = () => {
           accessorKey: key,
           header: value[0].toUpperCase() + value.slice(1),
           filterVariant: 'text',
-          Cell: ({ cell }) => (key.includes('date') ? new Date(cell.getValue()).toLocaleDateString() : cell.getValue()),
+          Cell: ({ cell }) => (cell.getValue() === null ? '—' : key.includes('date') ? new Date(cell.getValue()).toLocaleDateString() : cell.getValue()),
         }));
         setColumns(col);
       }
@@ -132,7 +130,6 @@ const Collection = () => {
       <h2 className={`text-${themeColorLight[theme]} m-3`}>{collection.name && `"${collection.name}" collection`}</h2>
       <div className="d-flex">
         <IKImage
-          data-proportion-h="1"
           urlEndpoint={urlEndpoint}
           path={collection.img ?? 'noimage.jpg'}
           transformation={[
@@ -158,7 +155,7 @@ const Collection = () => {
             </Accordion.Item>
             <Accordion.Item eventKey="1">
               <Accordion.Header className={theme}>Description</Accordion.Header>
-              <Accordion.Body className={`bg-${themeBgLight[theme]}`}>{collection.description}</Accordion.Body>
+              <Accordion.Body className={`bg-${themeBgLight[theme]}`}><ReactMarkdown>{collection.description}</ReactMarkdown></Accordion.Body>
             </Accordion.Item>
             <Accordion.Item
               eventKey="2"
@@ -205,7 +202,7 @@ const Collection = () => {
                 enableFullScreenToggle={false}
                 enableRowActions
                 renderRowActions={({ row }) => (
-                  <div className='d-flex'>
+                  <div className="d-flex">
                     <OverlayTrigger placement="bottom" delay={{ show: 250, hide: 250 }} overlay={renderItemTooltip}>
                       <Button
                         onClick={() => navigate(`/item/${items.items[row.index].id}`)}

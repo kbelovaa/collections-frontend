@@ -166,7 +166,9 @@ const Item = () => {
               <tr key={index}>
                 <td>{value[0].toUpperCase() + value.slice(1)}</td>
                 <td>
-                  {item[key] === false
+                  {item[key] === null
+                    ? '—'
+                    : item[key] === false
                     ? 'No'
                     : item[key] === true
                     ? 'Yes'

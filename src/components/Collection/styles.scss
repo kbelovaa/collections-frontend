@@ -1,5 +1,5 @@
-@import "~bootstrap/scss/_functions.scss";
-@import "~bootstrap/scss/_variables.scss";
+@import '~bootstrap/scss/_functions.scss';
+@import '~bootstrap/scss/_variables.scss';
 
 .collection {
   &-image {
@@ -27,7 +27,8 @@
   background-color: #6c757d;
 }
 
-.accordion-button, .accordion-body {
+.accordion-button,
+.accordion-body {
   @media screen and (max-width: 992px) {
     padding: 0.7rem 0.9rem;
   }
@@ -37,7 +38,6 @@
   }
 }
 
-pre {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
+.accordion-body p {
+  margin-bottom: 0;
 }

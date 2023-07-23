@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import { useTheme } from '../../hooks/useTheme';
 import { setUserAsync, setIsAuthAction } from '../../store/actions/userActions';
+import { check } from '../../http/authAPI'; 
 import NavBar from '../NavBar';
 import Main from '../Main';
 import Auth from '../Auth';
@@ -23,8 +24,15 @@ const App = () => {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      dispatch(setUserAsync());
-      dispatch(setIsAuthAction(true));
+      check()
+      .then((data) => {
+        if (data === 'deleted' || data === 'blocked') {
+          dispatch(setIsAuthAction(false));
+        } else {
+          dispatch(setUserAsync(data));
+          dispatch(setIsAuthAction(true));
+        }
+      })
     }
     if (userTheme === 'dark') {
       setTheme(theme);

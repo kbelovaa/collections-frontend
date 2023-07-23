@@ -1,7 +1,14 @@
-@import "~bootstrap/scss/_functions.scss";
-@import "~bootstrap/scss/_variables.scss";
+@import '~bootstrap/scss/_functions.scss';
+@import '~bootstrap/scss/_variables.scss';
 
-body, .form-control, .page-link, .btn, .dropdown-item, .form-select, option, .accordion-button {
+body,
+.form-control,
+.page-link,
+.btn,
+.dropdown-item,
+.form-select,
+option,
+.accordion-button {
   @media screen and (max-width: 992px) {
     font-size: 0.9rem;
   }
@@ -15,7 +22,8 @@ body, .form-control, .page-link, .btn, .dropdown-item, .form-select, option, .ac
   }
 }
 
-.btn, .page-link {
+.btn,
+.page-link {
   @media screen and (max-width: 992px) {
     padding: 0.25rem 0.55rem;
   }

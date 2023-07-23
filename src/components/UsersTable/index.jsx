@@ -2,7 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import jwt_decode from 'jwt-decode';
-import { Button, ButtonToolbar, Container, Dropdown, DropdownButton, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
+import {
+  Button,
+  ButtonToolbar,
+  Container,
+  Dropdown,
+  DropdownButton,
+  OverlayTrigger,
+  Table,
+  Tooltip,
+} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUnlock, faUserXmark, faUserGear, faUser, faImages } from '@fortawesome/free-solid-svg-icons';
 import { useTheme } from '../../hooks/useTheme';
@@ -125,7 +134,13 @@ const UsersTable = () => {
           Remove from admins <FontAwesomeIcon icon={faUser} />
         </Button>
       </ButtonToolbar>
-      <DropdownButton id="dropdown-basic-button" title="Actions" className="mt-3 d-md-none users-dropdown" data-bs-theme={theme} variant="secondary">
+      <DropdownButton
+        id="dropdown-basic-button"
+        title="Actions"
+        className="mt-3 d-md-none users-dropdown"
+        data-bs-theme={theme}
+        variant="secondary"
+      >
         <Dropdown.Item onClick={() => setStatus('blocked')}>
           Block <FontAwesomeIcon icon={faLock} />
         </Dropdown.Item>

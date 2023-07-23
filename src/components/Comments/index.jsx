@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import parseISO from 'date-fns/parseISO';
@@ -15,6 +16,7 @@ import './styles.scss';
 const Comments = ({ socket, itemId, userId }) => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
+  const isAuth = useSelector((state) => state.user.isAuth);
 
   const { theme } = useTheme();
 
@@ -65,7 +67,7 @@ const Comments = ({ socket, itemId, userId }) => {
     <div className="d-flex justify-content-center mt-5">
       <Card className={`bg-${themeBgLight[theme]} comments-card shadow-0 border mb-5`}>
         <Card.Body>
-          <Form onSubmit={sendComment} className={token !== null ? 'd-flex flex-column' : 'd-none'}>
+          <Form onSubmit={sendComment} className={isAuth ? 'd-flex flex-column' : 'd-none'}>
             <Form.Control
               className={`bg-${themeColorDark[theme]} text-${themeColorLight[theme]}`}
               value={commentText}

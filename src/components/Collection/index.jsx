@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 import { Accordion, Button, ButtonToolbar, Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { IKImage } from 'imagekitio-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -70,7 +70,12 @@ const Collection = () => {
           accessorKey: key,
           header: value[0].toUpperCase() + value.slice(1),
           filterVariant: 'text',
-          Cell: ({ cell }) => (cell.getValue() === null ? '—' : key.includes('date') ? new Date(cell.getValue()).toLocaleDateString() : cell.getValue()),
+          Cell: ({ cell }) =>
+            cell.getValue() === null
+              ? '—'
+              : key.includes('date')
+              ? new Date(cell.getValue()).toLocaleDateString()
+              : cell.getValue(),
         }));
         setColumns(col);
       }
@@ -155,7 +160,9 @@ const Collection = () => {
             </Accordion.Item>
             <Accordion.Item eventKey="1">
               <Accordion.Header className={theme}>Description</Accordion.Header>
-              <Accordion.Body className={`bg-${themeBgLight[theme]}`}><ReactMarkdown>{collection.description}</ReactMarkdown></Accordion.Body>
+              <Accordion.Body className={`bg-${themeBgLight[theme]}`}>
+                <ReactMarkdown>{collection.description}</ReactMarkdown>
+              </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item
               eventKey="2"
@@ -199,7 +206,6 @@ const Collection = () => {
                 data={items.items}
                 enableFacetedValues
                 initialState={{ showColumnFilters: true }}
-                enableFullScreenToggle={false}
                 enableRowActions
                 renderRowActions={({ row }) => (
                   <div className="d-flex">

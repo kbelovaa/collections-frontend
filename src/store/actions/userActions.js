@@ -12,6 +12,5 @@ export const setIsAuthAction = (payload) => ({
 });
 
 export const setUserAsync = (data) => (dispatch) => {
-    getUser(data.id)
-    .then((data) => dispatch(setUserAction(data)));
+  getUser(data.id).then((data) => dispatch(setUserAction(data)));
 };

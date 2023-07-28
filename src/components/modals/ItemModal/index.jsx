@@ -38,6 +38,14 @@ const ItemModal = ({ show, setShow, itemId, setEditItem, collectionId }) => {
 
   const { theme } = useTheme();
 
+  const arrayDefault = (array) => {
+    return array.map((item) => item ?? '');
+  }
+
+  const selectFields = (object, template) => {
+    object[`${template}${i}`]
+  }
+  
   useEffect(() => {
     if (collectionId) {
       getCollection(collectionId).then((data) => {
@@ -94,6 +102,12 @@ const ItemModal = ({ show, setShow, itemId, setEditItem, collectionId }) => {
     setShow(false);
     setEditItem(null);
   };
+
+  const filterObject = (start) => {
+    Object.values(collection)
+      .slice(start, start + 3)
+      .filter((field) => field).length;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();

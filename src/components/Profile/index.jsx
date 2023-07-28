@@ -72,7 +72,7 @@ const Profile = () => {
         </Button>
       </ButtonToolbar>
       {collections.collections.length === 0 ? (
-        <h4 className="mt-5">There are no collections</h4>
+        <h4 className={`text-${themeColorLight[theme]} mt-3`}>There are no collections</h4>
       ) : (
         <div className="mt-2 d-flex flex-wrap justify-content-center collection-wrap">
           {collections.collections.map((collection) => (
